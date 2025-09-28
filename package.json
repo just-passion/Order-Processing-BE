@@ -1,0 +1,21 @@
+{
+  "name": "order-processing-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/just-passion/Order-Processing-BE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/just-passion/Order-Processing-BE/issues"
+  },
+  "homepage": "https://github.com/just-passion/Order-Processing-BE#readme"
+}
