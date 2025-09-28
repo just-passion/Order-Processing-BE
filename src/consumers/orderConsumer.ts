@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { getKafka } from '../config/kafka';
+import { getKafka, initializeKafka } from '../config/kafka';
 import { initializeRedis } from '../config/redis';
 import { redisService } from '../services/redisService';
 import { OrderEvent, OrderStatus } from '../types';
@@ -10,6 +10,8 @@ async function startOrderConsumer() {
   try {
     // Initialize Redis
     await initializeRedis();
+    // Initialise Kafka
+    await initializeKafka();
     
     const kafka = getKafka();
     const consumer = kafka.consumer({ groupId: 'order-processing-group' });
