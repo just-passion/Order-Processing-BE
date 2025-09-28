@@ -241,6 +241,25 @@ class Application {
       process.exit(1);
     }
   }
+
+  // Method for testing
+  public getServer() {
+    return this.app;
+  }
+
+  // Method for shutdown during tests
+  public async shutdown(): Promise<void> {
+    try {
+      this.server.close();
+      this.websocketService.shutdown();
+      await this.kafkaService.disconnect();
+      await this.redisService.disconnect();
+      logger.info('Application shutdown completed');
+    } catch (error) {
+      logger.error('Error during application shutdown', { error });
+      throw error;
+    }
+  }
 }
 
 // Start the application
@@ -251,4 +270,5 @@ app.start().catch((error) => {
 });
 
 // Export for testing
+export { Application };
 export default app;
