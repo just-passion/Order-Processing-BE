@@ -6,13 +6,13 @@ class KafkaService {
     try {
       const producer = getKafkaProducer();
       
+      console.log({orderEventInKafka: orderEvent})
       await producer.send({
         topic: 'order-events',
         messages: [
           {
             key: orderEvent.orderId,
             value: JSON.stringify(orderEvent),
-            timestamp: orderEvent.timestamp
           }
         ]
       });

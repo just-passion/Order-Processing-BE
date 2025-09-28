@@ -23,9 +23,11 @@ class OrderService {
       order: savedOrder.toObject(),
       timestamp: new Date().toISOString()
     };
+
+    console.log({orderEvent})
     
     await kafkaService.publishOrderEvent(orderEvent);
-    
+    console.log({savedOrder})
     return savedOrder.toObject();
   }
   
